@@ -1,8 +1,8 @@
 require 'magickly'
 require 'image_size'
-require File.join(File.dirname(__FILE__), 'mustachio', 'shortcuts')
+require File.join(File.dirname(__FILE__), 'googlyeyes', 'shortcuts')
 
-module Mustachio
+module GooglyEyes
   FACE_POS_ATTRS = ['center', 'eye_left', 'eye_right', 'mouth_left', 'mouth_center', 'mouth_right', 'nose']
   FACE_SPAN_SCALE = 2.0
   
@@ -17,8 +17,8 @@ module Mustachio
     
     def setup
       @@face_client = Face.get_client(
-        :api_key => (ENV['MUSTACHIO_FACE_API_KEY'] || raise("Please set MUSTACHIO_FACE_API_KEY.")),
-        :api_secret => (ENV['MUSTACHIO_FACE_API_SECRET'] || raise("Please set MUSTACHIO_FACE_API_SECRET."))
+        :api_key => (ENV['GOOGLYEYES_FACE_API_KEY'] || raise("Please set GOOGLYEYES_FACE_API_KEY.")),
+        :api_secret => (ENV['GOOGLYEYES_FACE_API_SECRET'] || raise("Please set GOOGLYEYES_FACE_API_SECRET."))
       )
       
       staches = YAML.load(File.read(File.join(File.dirname(__FILE__), '..', 'config', 'staches.yml')))
@@ -52,9 +52,9 @@ module Mustachio
       
       # retrieve face data
       if file_or_job.is_a? String
-        face_data = Mustachio.face_client.faces_detect(:urls => [file_or_job], :attributes => 'none')
+        face_data = GooglyEyes.face_client.faces_detect(:urls => [file_or_job], :attributes => 'none')
       elsif file_or_job.is_a? File
-        face_data = Mustachio.face_client.faces_detect(:file => file_or_job, :attributes => 'none')
+        face_data = GooglyEyes.face_client.faces_detect(:file => file_or_job, :attributes => 'none')
       else
         raise ArgumentError, "A #{file_or_job.class} is not a valid argument for #face_data.  Please provide a File or a Dragonfly::Job."
       end

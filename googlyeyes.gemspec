@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{mustachio}
+  s.name = %q{googlyeyes}
   s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Aidan Feldman}]
-  s.date = %q{2011-05-26}
-  s.description = %q{Adds a 'mustachify' shortcut to magickly.}
-  s.email = %q{aidan.feldman@gmail.com}
+  s.authors = [%q{Eric Dennis}]
+  s.date = %q{2011-10-18}
+  s.description = %q{Adds a 'googlyeye' shortcut to magickly.}
+  s.email = %q{threetee@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.md"
@@ -27,17 +27,9 @@ Gem::Specification.new do |s|
     "VERSION",
     "bookmarklet.js",
     "config.ru",
-    "config/staches.yml",
-    "lib/mustachio.rb",
-    "lib/mustachio/app.rb",
-    "mustachio.gemspec",
     "public/favicon.ico",
     "public/images/dubya.jpeg",
     "public/images/guy_hecker.jpeg",
-    "public/images/staches/colonel_mustard.png",
-    "public/images/staches/mustache_03.png",
-    "public/images/staches/mustache_03.svg",
-    "public/images/staches/mustache_07.png",
     "spec/fixtures/vcr_cassettes/big_obama.yml",
     "spec/fixtures/vcr_cassettes/dubya.yml",
     "spec/fixtures/vcr_cassettes/small_obama.yml",
@@ -46,17 +38,19 @@ Gem::Specification.new do |s|
     "spec/support/dubya.jpeg",
     "spec/support/small_obama.jpeg",
     "spec/unit/analyser_spec.rb",
+    "spec/unit/job_spec.rb",
+    "spec/unit/magickly_spec.rb",
     "views/face_api_dev_challenge.haml",
     "views/ga.haml",
     "views/gallery.haml",
     "views/index.haml",
     "views/test.haml"
   ]
-  s.homepage = %q{http://github.com/afeld/mustachio}
+  s.homepage = %q{http://github.com/threetee/googlyeyes}
   s.licenses = [%q{MIT}]
   s.require_paths = [%q{lib}]
-  s.rubygems_version = %q{1.8.4}
-  s.summary = %q{automatic mustachifying of any image}
+  s.rubygems_version = %q{1.8.6}
+  s.summary = %q{automatic googly eyes on any image}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
@@ -66,10 +60,9 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<dragonfly>, ["~> 0.9.0"])
       s.add_runtime_dependency(%q<magickly>, ["~> 1.1"])
       s.add_runtime_dependency(%q<addressable>, ["~> 2.2.4"])
-      s.add_runtime_dependency(%q<haml>, [">= 0"])
+      s.add_runtime_dependency(%q<haml>, ["~> 3.0"])
       s.add_runtime_dependency(%q<face>, ["= 0.0.4"])
       s.add_runtime_dependency(%q<imagesize>, ["~> 0.1"])
-      s.add_development_dependency(%q<rake>, ["~> 0.8.7"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6"])
       s.add_development_dependency(%q<rack-test>, [">= 0"])
       s.add_development_dependency(%q<rspec>, ["~> 2.5"])
@@ -82,10 +75,9 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<dragonfly>, ["~> 0.9.0"])
       s.add_dependency(%q<magickly>, ["~> 1.1"])
       s.add_dependency(%q<addressable>, ["~> 2.2.4"])
-      s.add_dependency(%q<haml>, [">= 0"])
+      s.add_dependency(%q<haml>, ["~> 3.0"])
       s.add_dependency(%q<face>, ["= 0.0.4"])
       s.add_dependency(%q<imagesize>, ["~> 0.1"])
-      s.add_dependency(%q<rake>, ["~> 0.8.7"])
       s.add_dependency(%q<jeweler>, ["~> 1.6"])
       s.add_dependency(%q<rack-test>, [">= 0"])
       s.add_dependency(%q<rspec>, ["~> 2.5"])
@@ -99,10 +91,9 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<dragonfly>, ["~> 0.9.0"])
     s.add_dependency(%q<magickly>, ["~> 1.1"])
     s.add_dependency(%q<addressable>, ["~> 2.2.4"])
-    s.add_dependency(%q<haml>, [">= 0"])
+    s.add_dependency(%q<haml>, ["~> 3.0"])
     s.add_dependency(%q<face>, ["= 0.0.4"])
     s.add_dependency(%q<imagesize>, ["~> 0.1"])
-    s.add_dependency(%q<rake>, ["~> 0.8.7"])
     s.add_dependency(%q<jeweler>, ["~> 1.6"])
     s.add_dependency(%q<rack-test>, [">= 0"])
     s.add_dependency(%q<rspec>, ["~> 2.5"])

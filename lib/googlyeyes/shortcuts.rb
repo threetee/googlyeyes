@@ -1,24 +1,24 @@
 require 'face'
 
 Magickly.dragonfly.configure do |c|
-  c.log_commands = true
+  # c.log_commands = true
   
   c.analyser.add :face_data do |temp_object|
-    Mustachio.face_data(temp_object)
+    GooglyEyes.face_data(temp_object)
   end
   
   c.analyser.add :face_data_as_px do |temp_object|
-    Mustachio.face_data_as_px(temp_object)
+    GooglyEyes.face_data_as_px(temp_object)
   end
   
   c.analyser.add :face_span do |temp_object|
-    Mustachio.face_span(temp_object)
+    GooglyEyes.face_span(temp_object)
   end
   
   
   
-  c.job :mustachify do |stache_num_param|
-    photo_data = Mustachio.face_data_as_px(@job)
+  c.job :eyesify do |stache_num_param|
+    photo_data = GooglyEyes.face_data_as_px(@job)
     width = photo_data['width']
     
     commands = ['-virtual-pixel transparent']
@@ -29,12 +29,12 @@ Magickly.dragonfly.configure do |c|
         when 'true'
           0
         when 'rand'
-          rand(Mustachio.mustaches.size)
+          rand(GooglyEyes.mustaches.size)
         else
           stache_num_param.to_i
       end
       
-      mustache = Mustachio.mustaches[stache_num]
+      mustache = GooglyEyes.mustaches[stache_num]
       
       # perform transform such that the mustache is the height
       # of the upper lip, and the bottom-center of the stache
@@ -72,7 +72,7 @@ Magickly.dragonfly.configure do |c|
     thumb_width = thumb_width.to_f
     thumb_height = thumb_height.to_f
     
-    span = Mustachio.face_span(@job)
+    span = GooglyEyes.face_span(@job)
     puts span.inspect
     scale_x = thumb_width / span[:width]
     scale_y = thumb_height / span[:height]

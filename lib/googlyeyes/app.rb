@@ -1,7 +1,7 @@
-require File.join(File.dirname(__FILE__), '..', 'mustachio')
+require File.join(File.dirname(__FILE__), '..', 'googlyeyes')
 require 'sinatra/base'
 
-module Mustachio
+module GooglyEyes
   class App < Sinatra::Base
     register Sinatra::Synchrony unless RUBY_VERSION.start_with? '1.8'
     
@@ -15,7 +15,7 @@ module Mustachio
     end
     
     before do
-      app_host = ENV['MUSTACHIO_APP_DOMAIN']
+      app_host = ENV['GOOGLYEYES_APP_DOMAIN']
       if app_host && request.host != app_host
         request_host_with_port = request.env['HTTP_HOST']
         redirect request.url.sub(request_host_with_port, app_host), 301
@@ -27,7 +27,7 @@ module Mustachio
       src = params[:src]
       if src
         # use the specified stache, otherwise fall back to random
-        image = Magickly.process_src params[:src], :mustachify => (stache_num || true)
+        image = Magickly.process_src params[:src], :eyesify => (stache_num || true)
         image.to_response(env)
       else
         @stache_num = stache_num
