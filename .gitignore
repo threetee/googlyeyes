@@ -50,5 +50,5 @@ tmtags
 # For RVM:
 .rvmrc
 
-# Ignore environment setup script
-setup_env.sh
+# Ignore environment config
+.env
