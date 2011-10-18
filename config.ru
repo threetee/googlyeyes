@@ -2,6 +2,9 @@ require 'rubygems'
 require 'bundler'
 Bundler.require
 
+# For heroku logging
+$stdout.sync = true
+
 require File.join(File.dirname(__FILE__), 'lib', 'googlyeyes', 'app')
 
 map '/' do
