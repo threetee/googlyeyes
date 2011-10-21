@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="90.457794"
+   height="90.458038"
+   id="svg2488"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   version="1.0"
+   sodipodi:docbase="/home/ted/Desktop"
+   sodipodi:docname="eyes googly.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs2490" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="4.4993237"
+     inkscape:cx="45.228899"
+     inkscape:cy="45.229014"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="910"
+     inkscape:window-height="589"
+     inkscape:window-x="0"
+     inkscape:window-y="25" />
+  <metadata
+     id="metadata2493">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-249.05681,-432.84744)">
+    <g
+       id="g2375"
+       transform="translate(-876.10078,400.96819)">
+      <rect
+         y="32.816769"
+         x="1126.0951"
+         height="88.583023"
+         width="88.582779"
+         id="rect132"
+         style="font-size:12px;fill:#db0000;fill-rule:evenodd;stroke:#000000;stroke-width:1.875" />
+      <g
+         transform="translate(456.791,-603.927)"
+         id="g280">
+        <path
+           transform="matrix(1,0,0,0.73785,659.792,116.374)"
+           sodipodi:nodetypes="ccs"
+           id="path276"
+           d="M 88.5827,751.181 C 88.5827,733.465 53.1496,733.465 53.1496,751.181 C 53.1496,768.898 88.5827,768.898 88.5827,751.181 z "
+           style="font-size:12px;fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+        <path
+           transform="matrix(0.350972,0,0,0.413814,705.692,356.571)"
+           sodipodi:nodetypes="ccs"
+           id="path277"
+           d="M 88.5827,751.181 C 88.5827,733.465 53.1496,733.465 53.1496,751.181 C 53.1496,768.898 88.5827,768.898 88.5827,751.181 z "
+           style="font-size:12px;fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+        <path
+           transform="matrix(1,0,0,0.73785,623.851,116.544)"
+           sodipodi:nodetypes="ccs"
+           id="path278"
+           d="M 88.5827,751.181 C 88.5827,733.465 53.1496,733.465 53.1496,751.181 C 53.1496,768.898 88.5827,768.898 88.5827,751.181 z "
+           style="font-size:12px;fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+        <path
+           transform="matrix(0.350972,0,0,0.413814,670.233,364.148)"
+           sodipodi:nodetypes="ccs"
+           id="path279"
+           d="M 88.5827,751.181 C 88.5827,733.465 53.1496,733.465 53.1496,751.181 C 53.1496,768.898 88.5827,768.898 88.5827,751.181 z "
+           style="font-size:12px;fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+      </g>
+    </g>
+  </g>
+</svg>
