@@ -1,10 +1,10 @@
 !!!
 %html
   %head
-    %title mustache gallery - mustachio
+    %title googly eye gallery - googlyey.es
   %body
     %ol{ :start => 0 }
-      - Mustachio.mustaches.each_with_index do |mustache, i|
+      - GooglyEyes.eyes.each_with_index do |eye, i|
         %li
           %a{ :href => "/#{i}" }
-            %img{ :src => "/images/staches/#{mustache['filename']}", :height => 80 }
+            %img{ :src => "/images/eyes/#{eye['filename']}", :height => 80 }
