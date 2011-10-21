@@ -23,14 +23,14 @@ module GooglyEyes
     end
     
     
-    get %r{^/(\d+|rand)?$} do |stache_num|
+    get %r{^/(\d+|rand)?$} do |eye_num|
       src = params[:src]
       if src
-        # use the specified stache, otherwise fall back to random
-        image = Magickly.process_src params[:src], :eyesify => (stache_num || true)
+        # use the specified eye, otherwise fall back to random
+        image = Magickly.process_src params[:src], :eyesify => (eye_num || true)
         image.to_response(env)
       else
-        @stache_num = stache_num
+        @eye_num = eye_num
         @site = Addressable::URI.parse(request.url).site
         haml :index
       end

@@ -17,48 +17,60 @@ Magickly.dragonfly.configure do |c|
   
   
   
-  c.job :eyesify do |stache_num_param|
+  c.job :eyesify do |eye_num_param|
     photo_data = GooglyEyes.face_data_as_px(@job)
     width = photo_data['width']
     
     commands = ['-virtual-pixel transparent']
     photo_data['tags'].each do |face|
-      stache_num = case stache_num_param
+      eye_num = case eye_num_param
         when true
           0
         when 'true'
           0
         when 'rand'
-          rand(GooglyEyes.mustaches.size)
+          rand(GooglyEyes.eyes.size)
         else
-          stache_num_param.to_i
+          eye_num_param.to_i
       end
       
-      mustache = GooglyEyes.mustaches[stache_num]
+      eye = GooglyEyes.eyes[eye_num]
       
-      # perform transform such that the mustache is the height
-      # of the upper lip, and the bottom-center of the stache
-      # is mapped to the center of the mouth
-      rotation = Math.atan(
-        ( face['mouth_right']['y'] - face['mouth_left']['y'] ).to_f /
-        ( face['mouth_right']['x'] - face['mouth_left']['x'] ).to_f
-      ) / Math::PI * 180.0
-      desired_height = Math.sqrt(
-        ( face['nose']['x'] - face['mouth_center']['x'] ).to_f**2 +
-        ( face['nose']['y'] - face['mouth_center']['y'] ).to_f**2
-      )
-      mouth_intersect = mustache['height'] - mustache['mouth_overlap']
-      scale = desired_height / mouth_intersect
+      # stick a googly eye over each of the real eyes
+      # center coords of eyes: face['eye_left']['x'], face['eye_left']['y'], etc.
+
+      # each eye is usually around 1/5 the width of the face
+      # we'll use 1/4 of the face width for comically large eyes
+      scale = (( width * ( face['width'] / 100 )) / 4) / eye['width']
+      puts "face['height'] = #{face['height']}"
+      puts "eye['width'] = #{eye['width']}"
+      puts "scale = #{scale}"
       
-      srt_params = [
-        [ mustache['width'] / 2.0, mouth_intersect - mustache['vert_offset'] ].map{|e| e.to_i }.join(','), # bottom-center of stache
+      # left eye
+      rotation = rand(360)
+      left_eye_srt_params = [
+        [ eye['width'] / 2.0, eye['height'] / 2.0 ].map{|e| e.to_i }.join(','), # rotate around middle of googly eye image
+        scale, # scale
+        rotation, # random rotation
+        [ face['eye_left']['x'], face['eye_left']['y'] ].map{|e| e.to_i }.join(',') # middle of eye
+      ]
+      left_eye_srt_params_str = left_eye_srt_params.join(' ')
+
+      # right eye
+      rotation = rand(360)
+      right_eye_srt_params = [
+        [ eye['width'] / 2.0, eye['height'] / 2.0 ].map{|e| e.to_i }.join(','), # rotate around middle of googly eye image
         scale, # scale
         rotation, # rotate
-        [ face['mouth_center']['x'], face['mouth_center']['y'] ].map{|e| e.to_i }.join(',') # middle of mouth
+        [ face['eye_right']['x'], face['eye_right']['y'] ].map{|e| e.to_i }.join(',') # middle of eye
       ]
-      srt_params_str = srt_params.join(' ')
+      right_eye_srt_params_str = right_eye_srt_params.join(' ')
       
-      commands << "\\( #{mustache['file_path']} +distort SRT '#{srt_params_str}' \\)"
+      # right eye
+      
+      # commands << "\\( #{mustache['file_path']} +distort SRT '#{srt_params_str}' \\)"
+      commands << "\\( #{eye['file_path']} +distort SRT '#{left_eye_srt_params_str}' \\)"
+      commands << "\\( #{eye['file_path']} +distort SRT '#{right_eye_srt_params_str}' \\)"
     end
     commands << "-flatten"
     

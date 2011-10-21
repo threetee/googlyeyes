@@ -11,8 +11,8 @@ module GooglyEyes
       @@face_client
     end
     
-    def mustaches
-      @@mustaches
+    def eyes
+      @@eyes
     end
     
     def setup
@@ -21,18 +21,18 @@ module GooglyEyes
         :api_secret => (ENV['GOOGLYEYES_FACE_API_SECRET'] || raise("Please set GOOGLYEYES_FACE_API_SECRET."))
       )
       
-      staches = YAML.load(File.read(File.join(File.dirname(__FILE__), '..', 'config', 'staches.yml')))
-      staches.map! do |stache|
-        stache['vert_offset'] ||= 0
-        stache['mouth_overlap'] ||= 0
+      eyes = YAML.load(File.read(File.join(File.dirname(__FILE__), '..', 'config', 'eyes.yml')))
+      eyes.map! do |eye|
+        eye['vert_offset'] ||= 0
+        eye['mouth_overlap'] ||= 0
         
-        stache['file_path'] = File.expand_path(File.join(File.dirname(__FILE__), '..', 'public', 'images', 'staches', stache['filename']))
-        unless stache['width'] && stache['height']
-          stache['width'], stache['height'] = ImageSize.new(File.new(stache['file_path'])).get_size
+        eye['file_path'] = File.expand_path(File.join(File.dirname(__FILE__), '..', 'public', 'images', 'eyes', eye['filename']))
+        unless eye['width'] && eye['height']
+          eye['width'], eye['height'] = ImageSize.new(File.new(eye['file_path'])).get_size
         end
-        stache
+        eye
       end
-      @@mustaches = staches
+      @@eyes = eyes
     end
     
     
