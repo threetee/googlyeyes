@@ -41,11 +41,14 @@ Magickly.dragonfly.configure do |c|
 
       # each eye is usually around 1/5 the width of the face
       # we'll use 1/4 of the face width for comically large eyes
-      scale = (( width * ( face['width'] / 100 )) / 4) / eye['width']
-      puts "face['height'] = #{face['height']}"
+      puts "width = #{width}"
+      # puts "face['height'] = #{face['height']}"
       puts "face['width'] = #{face['width']}"
       puts "eye['width'] = #{eye['width']}"
-      puts "scale = #{scale}"
+      scale = ((( width * ( face['width'] / 100 )) / 4) / eye['width'])
+      if scale == 0
+        scale = 0.5
+      end
       
       # left eye
       rotation = rand(360)
