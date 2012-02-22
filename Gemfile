@@ -30,3 +30,5 @@ end
 group :production do
   gem 'newrelic_rpm', :require => false
 end
+
+gem 'redis-rack-cache'

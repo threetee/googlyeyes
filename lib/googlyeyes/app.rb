@@ -1,14 +1,23 @@
 require File.join(File.dirname(__FILE__), '..', 'googlyeyes')
 require 'sinatra/base'
+require 'rack'
+require 'rack/cache'
+require 'redis-rack-cache'
 
 module GooglyEyes
   class App < Sinatra::Base
     register Sinatra::Synchrony unless RUBY_VERSION.start_with? '1.8'
     
     DEMO_IMAGE = 'http://www.librarising.com/astrology/celebs/images2/QR/queenelizabethii.jpg'
-    
+
+    set :redis_url, ENV['REDISTOGO_URL'] || "redis://127.0.0.1:6379/0"
+
     set :static, true
     set :public, 'public'
+        
+    use Rack::Cache,
+      :metastore   => "#{redis_url}/metastore",
+      :entitystore => "#{redis_url}/entitystore"
     
     configure :production do
       require 'newrelic_rpm' if ENV['NEW_RELIC_ID']
