@@ -43,6 +43,7 @@ Magickly.dragonfly.configure do |c|
       # we'll use 1/4 of the face width for comically large eyes
       scale = (( width * ( face['width'] / 100 )) / 4) / eye['width']
       puts "face['height'] = #{face['height']}"
+      puts "face['width'] = #{face['width']}"
       puts "eye['width'] = #{eye['width']}"
       puts "scale = #{scale}"
       
