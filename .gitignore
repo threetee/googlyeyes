@@ -52,3 +52,5 @@ tmtags
 
 # Ignore environment config
 .env
+
+start.sh
